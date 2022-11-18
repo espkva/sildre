@@ -1,0 +1,59 @@
+@use "@fremtind/jkl-core/jkl";
+
+header {
+    .formatted-time {
+        font-size: 76px;
+        text-align: center;
+    }
+
+    .sensordata-list {
+        list-style: none;
+        padding-inline-start: 0;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+
+        @include jkl.text-style("body");
+        color: jkl.$color-svaberg;
+
+        &__item {
+            text-align: center;
+
+
+            &:not(:first-of-type) {
+            &::before {
+                content: "|";
+                margin-left: 1rem;
+                margin-right: 1rem;
+                width: 100px;
+            }}
+        }
+    }
+
+    .wudderdrop {
+        display: flex;
+        justify-content: center;
+        margin-top: jkl.$spacing-2xl;
+        margin-bottom: jkl.$spacing-xl;
+        position: relative;
+
+        &-mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: var(--jkl-background-color);
+            transition-property: bottom;
+            transition-timing-function: cubic-bezier(0, 0, 0.375, 1.17);
+            transition-duration: 800ms;
+        }
+        &-scale {
+            transform: scale(0);
+            transition-property: transform;
+            transition-timing-function: ease;
+            transition-duration: 800ms;
+        }
+    }
+
+}
